@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>HealthRecord.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #7a7e85;}
+.s5 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+HealthRecord.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span><span class="s1">HealthRecord</span>
+<span class="s2">{</span>
+    <span class="s0">private int </span><span class="s1">height </span><span class="s2">= </span><span class="s3">0</span><span class="s2">;</span>
+    <span class="s0">private static final int </span><span class="s1">MIN_PERMITTED_HEIGHT </span><span class="s2">= </span><span class="s3">50</span><span class="s2">;</span>
+    <span class="s0">private static final int </span><span class="s1">MAX_PERMITTED_HEIGHT </span><span class="s2">= </span><span class="s3">175</span><span class="s2">;</span>
+    <span class="s0">private static final int </span><span class="s1">DEFAULT_HEIGHT </span><span class="s2">= </span><span class="s3">100</span><span class="s2">;</span>
+    <span class="s4">// HW</span>
+    <span class="s0">private static int </span><span class="s1">counter </span><span class="s2">= </span><span class="s3">0</span><span class="s2">;</span>
+    <span class="s0">private static double </span><span class="s1">averageHeight </span><span class="s2">= </span><span class="s3">0</span><span class="s2">;</span>
+
+    <span class="s4">// TODO: 1 Think about the initial value for maximum and minimum height</span>
+    <span class="s0">private static int </span><span class="s1">tallestHeight </span><span class="s2">= </span><span class="s1">MIN_PERMITTED_HEIGHT</span><span class="s2">;</span>
+    <span class="s0">private static int </span><span class="s1">shortestHeight </span><span class="s2">=  </span><span class="s1">MAX_PERMITTED_HEIGHT</span><span class="s2">;</span>
+
+
+    <span class="s0">public int </span><span class="s1">getHeight</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return this</span><span class="s2">.</span><span class="s1">height</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    
+    <span class="s0">public  </span><span class="s1">HealthRecord</span><span class="s2">(</span><span class="s0">int </span><span class="s1">height</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">setHeight</span><span class="s2">(</span><span class="s1">height</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static int </span><span class="s1">getTallestHeight</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">HealthRecord</span><span class="s2">.</span><span class="s1">tallestHeight</span><span class="s2">;</span>
+
+    <span class="s2">}</span>
+
+    <span class="s0">public static int </span><span class="s1">getShortestHeight</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">HealthRecord</span><span class="s2">.</span><span class="s1">shortestHeight</span><span class="s2">;</span>
+
+    <span class="s2">}</span>
+    <span class="s0">public static double </span><span class="s1">getAverageHeight</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">return </span><span class="s1">HealthRecord</span><span class="s2">.</span><span class="s1">averageHeight</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s0">public void </span><span class="s1">setHeight</span><span class="s2">(</span><span class="s0">int </span><span class="s1">height</span><span class="s2">)</span>
+    <span class="s2">{</span>
+
+        <span class="s4">// TODO: 2 Check if the input height falls within the permitted rangepublic void setHeight(int height)</span>
+        <span class="s0">if </span><span class="s2">( </span><span class="s1">height </span><span class="s2">&gt; </span><span class="s1">MIN_PERMITTED_HEIGHT </span><span class="s2">&amp;&amp; </span><span class="s1">height </span><span class="s2">&lt; </span><span class="s1">MAX_PERMITTED_HEIGHT </span><span class="s2">)</span>
+            <span class="s0">this</span><span class="s2">.</span><span class="s1">height </span><span class="s2">= </span><span class="s1">height</span><span class="s2">;</span>
+        <span class="s0">else</span>
+            <span class="s0">this</span><span class="s2">.</span><span class="s1">height </span><span class="s2">= </span><span class="s1">DEFAULT_HEIGHT </span><span class="s2">;</span>
+
+        <span class="s4">// TODO: 3 Update the tallest and shortest height</span>
+        <span class="s0">if </span><span class="s2">( </span><span class="s0">this</span><span class="s2">.</span><span class="s1">height </span><span class="s2">&gt; </span><span class="s1">tallestHeight </span><span class="s2">)</span>
+            <span class="s1">tallestHeight </span><span class="s2">= </span><span class="s0">this</span><span class="s2">.</span><span class="s1">height </span><span class="s2">;</span>
+        <span class="s0">if </span><span class="s2">( </span><span class="s0">this</span><span class="s2">.</span><span class="s1">height </span><span class="s2">&lt; </span><span class="s1">shortestHeight  </span><span class="s2">)</span>
+            <span class="s1">shortestHeight </span><span class="s2">= </span><span class="s0">this</span><span class="s2">.</span><span class="s1">height </span><span class="s2">;</span>
+        <span class="s4">//HW</span>
+        <span class="s1">averageHeight </span><span class="s2">= ( ( </span><span class="s1">averageHeight </span><span class="s2">* </span><span class="s1">counter </span><span class="s2">)+ </span><span class="s0">this</span><span class="s2">.</span><span class="s1">height</span><span class="s2">)/(</span><span class="s1">counter</span><span class="s2">+</span><span class="s3">1</span><span class="s2">);</span>
+        <span class="s1">counter</span><span class="s2">++;</span>
+    <span class="s2">}</span>
+    <span class="s0">public void </span><span class="s1">displayDetails</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Height (cm): &quot; </span><span class="s2">+ </span><span class="s1">getHeight</span><span class="s2">());</span>
+    <span class="s2">}</span>
+    <span class="s0">public static void </span><span class="s1">displayClassDetails</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;The tallest height (cm): &quot; </span><span class="s2">+ </span><span class="s1">getTallestHeight</span><span class="s2">());</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;The shortest height (cm): &quot; </span><span class="s2">+ </span><span class="s1">getShortestHeight</span><span class="s2">());</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;The Average height (cm): &quot; </span><span class="s2">+ </span><span class="s1">getAverageHeight</span><span class="s2">());</span>
+    <span class="s2">}</span>
+
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">HealthRecord student1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HealthRecord</span><span class="s2">(</span><span class="s3">120</span><span class="s2">);</span>
+        <span class="s1">HealthRecord student2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HealthRecord</span><span class="s2">(</span><span class="s3">55</span><span class="s2">);</span>
+        <span class="s1">HealthRecord student3 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">HealthRecord</span><span class="s2">(</span><span class="s3">180</span><span class="s2">);</span>
+        <span class="s1">student1</span><span class="s2">.</span><span class="s1">displayDetails</span><span class="s2">(); </span><span class="s4">// 120</span>
+        <span class="s1">student2</span><span class="s2">.</span><span class="s1">displayDetails</span><span class="s2">(); </span><span class="s4">// 55</span>
+        <span class="s1">student3</span><span class="s2">.</span><span class="s1">displayDetails</span><span class="s2">(); </span><span class="s4">// 180 is not permitted, so it is replaced by default value</span>
+        <span class="s1">HealthRecord</span><span class="s2">.</span><span class="s1">displayClassDetails</span><span class="s2">(); </span><span class="s4">// tallest = 120, shortest = 55</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
